@@ -146,9 +146,9 @@ void uartAttachRx(uart_t* uart, uint8_t rxPin, bool inverted)
     if(uart == NULL || rxPin > 39) {
         return;
     }
-    pinMode(rxPin, INPUT);
-    pinMatrixInAttach(rxPin, UART_RXD_IDX(uart->num), inverted);
     uartEnableInterrupt(uart);
+    pinMode(rxPin, INPUT);
+    pinMatrixInAttach(rxPin, UART_RXD_IDX(uart->num), inverted);    
 }
 
 void uartAttachTx(uart_t* uart, uint8_t txPin, bool inverted)
